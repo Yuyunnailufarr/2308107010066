@@ -1,0 +1,76 @@
+#include <stdio.h>
+
+int main() {
+  int pilihan;
+  long int desimal, biner, oktal;
+
+  // Menu Pilihan
+  printf("Pilih jenis konversi:\n");
+  printf("1. Desimal ke Biner\n");
+  printf("2. Biner ke Desimal\n");
+  printf("3. Desimal ke Oktal\n");
+  printf("4. Oktal ke Desimal\n");
+  printf("Masukkan pilihan Anda: ");
+  scanf("%d", &pilihan);
+
+  // Analisa
+  switch (pilihan) {
+    case 1:
+      printf("Masukkan bilangan desimal: ");
+      scanf("%ld", &desimal);
+      biner = 0;
+      int i = 1;
+      while (desimal > 0) {
+        biner += (desimal % 2) * i;
+        desimal /= 2;
+        i *= 10;
+      }
+      printf("Bilangan binernya adalah: %ld\n", biner);
+      break;
+
+    case 2:
+      printf("Masukkan bilangan biner: ");
+      scanf("%ld", &biner);
+      desimal = 0;
+      int j = 1;
+      while (biner > 0) {
+        desimal += (biner % 10) * j;
+        biner /= 10;
+        j *= 2;
+      }
+      printf("Bilangan desimalnya adalah: %ld\n", desimal);
+      break;
+
+    case 3:
+      printf("Masukkan bilangan desimal: ");
+      scanf("%ld", &desimal);
+      oktal = 0;
+      int k = 1;
+      while (desimal > 0) {
+        oktal += (desimal % 8) * k;
+        desimal /= 8;
+        k *= 10;
+      }
+      printf("Bilangan oktalnya adalah: %ld\n", oktal);
+      break;
+
+    case 4:
+      printf("Masukkan bilangan oktal: ");
+      scanf("%ld", &oktal);
+      desimal = 0;
+      int l = 1;
+      while (oktal > 0) {
+        desimal += (oktal % 10) * l;
+        oktal /= 10;
+        l *= 8;
+
+      }
+      printf("Bilangan desimalnya adalah: %ld\n", desimal);
+      break;
+      
+    default:
+      printf("tidak valid!\n");
+  }
+
+  return 0;
+}
