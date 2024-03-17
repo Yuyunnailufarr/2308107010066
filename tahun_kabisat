@@ -1,0 +1,34 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+  int tahun;
+
+  //input tahun
+  printf("Masukkan tahun: ");
+  scanf("%d", &tahun);
+
+  // hanya tahun dengan 4 angka
+  while (tahun < 1000 || tahun > 9999) {
+    printf("Tahun yang dimasukkan tidak valid. Masukkan kembali tahun (4 angka): ");
+    scanf("%d", &tahun);
+  }
+
+  // Mengecek apakah tahun kabisat
+  int kabisat = 0;
+  if (tahun % 4 == 0) {
+    kabisat = 1;
+    if (tahun % 100 == 0 && tahun % 400 != 0) {
+      kabisat = 0;
+    }
+  }
+
+  // output tahun
+  if (kabisat) {
+    printf("Tahun %d adalah tahun kabisat\n", tahun);
+  } else {
+    printf("Tahun %d bukan tahun kabisat\n", tahun);
+  }
+
+  return 0;
+}
